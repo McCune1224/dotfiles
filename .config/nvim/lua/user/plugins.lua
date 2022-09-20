@@ -62,7 +62,7 @@ return packer.startup(function(use)
     use { "lunarvim/darkplus.nvim" }
     use { "cocopon/iceberg.vim" }
     use({ "catppuccin/nvim", as = "catppuccin" })
-    use { "kyazdani42/blue-moon"}
+    use { "kyazdani42/blue-moon" }
     use { "ellisonleao/gruvbox.nvim" }
     -- cmp plugins
     use { "hrsh7th/nvim-cmp" } -- The completion plugin
@@ -88,6 +88,7 @@ return packer.startup(function(use)
 
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter" }
+    use { "nvim-treesitter/nvim-treesitter-context" }
 
     -- Git
     use { "lewis6991/gitsigns.nvim" }
@@ -111,6 +112,8 @@ return packer.startup(function(use)
             }
         end
     }
+
+    use { "andweeb/presence.nvim" }
     -- Impatient Plugin not happy with this program, will commented for now until solution is found
     --https://github.com/chipsenkbeil/distant.nvim/issues/66
     -- use {
