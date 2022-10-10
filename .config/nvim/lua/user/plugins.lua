@@ -113,6 +113,8 @@ return packer.startup(function(use)
         end
     }
 
+    use { "iamcco/markdown-preview.nvim" }
+
     use { "andweeb/presence.nvim" }
     -- Impatient Plugin not happy with this program, will commented for now until solution is found
     --https://github.com/chipsenkbeil/distant.nvim/issues/66

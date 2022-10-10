@@ -42,6 +42,7 @@ null_ls.setup({
 		--golang
 		diagnostics.golangci_lint,
 		formatting.goimports,
+        formatting.gofumpt,
 
 		--lua
 		formatting.stylua,
