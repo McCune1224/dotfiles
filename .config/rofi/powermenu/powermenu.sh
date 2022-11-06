@@ -80,10 +80,10 @@ case $chosen in
         fi
         ;;
     $lock)
-		if [[ -f /usr/bin/blurlock ]]; then
+		if [[ -f /usr/bin/betterlockscreen ]]; then
+			betterlockscreen -l blur
+		elif [[ -f /usr/bin/blurlock ]]; then
 			blurlock
-		elif [[ -f /usr/bin/betterlockscreen ]]; then
-			betterlockscreen -l
 		fi
         ;;
     $suspend)
@@ -106,6 +106,8 @@ case $chosen in
 			elif [[ "$DESKTOP_SESSION" == "bspwm" ]]; then
 				bspc quit
 			elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
+				i3-msg exit
+			elif [[ "$DESKTOP_SESSION" == "i3-with-shmlog" ]]; then
 				i3-msg exit
 			fi
 		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
