@@ -38,39 +38,38 @@ packer.init {
     },
 }
 
--- Install your plugins here
 return packer.startup(function(use)
-    -- My plugins here
     use { "wbthomason/packer.nvim" } -- Have packer manage itself
     use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
     use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
     use { "numToStr/Comment.nvim" }
     use { "JoosepAlviste/nvim-ts-context-commentstring" }
-    use { "kyazdani42/nvim-web-devicons" }
-    use { "kyazdani42/nvim-tree.lua" }
-    use { "akinsho/bufferline.nvim" }
+    use { "kyazdani42/nvim-web-devicons" } -- Nice Icons for bars n such
+    use { "kyazdani42/nvim-tree.lua" } -- Side bar file explorer
+    use { "akinsho/bufferline.nvim" } -- Bar at top to show current buffers
     use { "moll/vim-bbye" }
-    use { "nvim-lualine/lualine.nvim" }
-    use { "akinsho/toggleterm.nvim" }
-    use { "ahmedkhalf/project.nvim" }
-    use { "lewis6991/impatient.nvim" }
-    use { "lukas-reineke/indent-blankline.nvim" }
-    use { "goolord/alpha-nvim" }
+    use { "nvim-lualine/lualine.nvim" } -- Status Line
+    use { "akinsho/toggleterm.nvim" } -- Allows to open a terminal in a buffer
+    use { "ahmedkhalf/project.nvim" } -- Mark Projects in directory structures
+    use { "lewis6991/impatient.nvim" } -- Quick Loading of Plugins
+    use { "lukas-reineke/indent-blankline.nvim" } --Blankline indenting
+    use { "goolord/alpha-nvim" } --Main Menu if just opening nvim by itself
 
     -- Colorschemes
     use { "folke/tokyonight.nvim" }
     use { "lunarvim/darkplus.nvim" }
     use { "cocopon/iceberg.vim" }
-    use({ "catppuccin/nvim", as = "catppuccin" })
+    use({ "catppuccin/nvim", as = "catppuccin" }) -- BEST THEME WEEEW
     use { "kyazdani42/blue-moon" }
     use { "ellisonleao/gruvbox.nvim" }
+
     -- cmp plugins
     use { "hrsh7th/nvim-cmp" } -- The completion plugin
     use { "hrsh7th/cmp-buffer" } -- buffer completions
     use { "hrsh7th/cmp-path" } -- path completions
     use { "saadparwaiz1/cmp_luasnip" } -- snippet completions
-    use { "hrsh7th/cmp-nvim-lsp" }
-    use { "hrsh7th/cmp-nvim-lua" }
+    use { "hrsh7th/cmp-nvim-lsp" } -- LSP generated completion 
+    use { "hrsh7th/cmp-nvim-lua" } -- Lua generated completion
 
     -- snippets
     use { "L3MON4D3/LuaSnip" } --snippet engine
@@ -81,7 +80,7 @@ return packer.startup(function(use)
     use { "williamboman/mason.nvim" } -- simple to use language server installer
     use { "williamboman/mason-lspconfig.nvim" } -- Helper plugin for lspconfig + mason(installer)
     use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
-    use { "RRethy/vim-illuminate" }
+    use { "RRethy/vim-illuminate" } -- highlighting other uses of the word under the cursor
 
     -- Telescope
     use { "nvim-telescope/telescope.nvim" }
@@ -91,27 +90,19 @@ return packer.startup(function(use)
     use { "nvim-treesitter/nvim-treesitter-context" }
 
     -- Git
-    use { "lewis6991/gitsigns.nvim" }
+    use { "lewis6991/gitsigns.nvim" } --
 
     -- DAP
-    use { "mfussenegger/nvim-dap" }
-    use { "rcarriga/nvim-dap-ui" }
-    use { "leoluz/nvim-dap-go" }
-    use { "mfussenegger/nvim-dap-python" }
+    use { "mfussenegger/nvim-dap" } -- DAP engine
+    use { "rcarriga/nvim-dap-ui" } -- UI for when running DAP
 
-    --TPOPE
-    use { "tpope/vim-unimpaired" }
-    use { "tpope/vim-surround" }
-    use { "tpope/vim-repeat" }
+    --TPOPE QOL 
+    use { "tpope/vim-unimpaired" } --Simply short normal mode aliases for commonly used ex commands
+    use { "tpope/vim-surround" } -- Change text object surroundings 
+    use { "tpope/vim-repeat" } -- Better repeat functionality
 
     --WhichKey
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            require("which-key").setup {
-            }
-        end
-    }
+    use { "folke/which-key.nvim"}
 
     use { "iamcco/markdown-preview.nvim" }
 
