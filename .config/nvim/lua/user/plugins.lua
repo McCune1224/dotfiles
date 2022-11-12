@@ -68,7 +68,7 @@ return packer.startup(function(use)
     use { "hrsh7th/cmp-buffer" } -- buffer completions
     use { "hrsh7th/cmp-path" } -- path completions
     use { "saadparwaiz1/cmp_luasnip" } -- snippet completions
-    use { "hrsh7th/cmp-nvim-lsp" } -- LSP generated completion 
+    use { "hrsh7th/cmp-nvim-lsp" } -- LSP generated completion
     use { "hrsh7th/cmp-nvim-lua" } -- Lua generated completion
 
     -- snippets
@@ -80,6 +80,7 @@ return packer.startup(function(use)
     use { "williamboman/mason.nvim" } -- simple to use language server installer
     use { "williamboman/mason-lspconfig.nvim" } -- Helper plugin for lspconfig + mason(installer)
     use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
+    use { "jayp0521/mason-null-ls.nvim" }
     use { "RRethy/vim-illuminate" } -- highlighting other uses of the word under the cursor
 
     -- Telescope
@@ -96,13 +97,11 @@ return packer.startup(function(use)
     use { "mfussenegger/nvim-dap" } -- DAP engine
     use { "rcarriga/nvim-dap-ui" } -- UI for when running DAP
 
-    --TPOPE QOL 
+    --TPOPE QOL
     use { "tpope/vim-unimpaired" } --Simply short normal mode aliases for commonly used ex commands
-    use { "tpope/vim-surround" } -- Change text object surroundings 
+    use { "tpope/vim-surround" } -- Change text object surroundings
     use { "tpope/vim-repeat" } -- Better repeat functionality
 
-    --WhichKey
-    use { "folke/which-key.nvim"}
 
     use { "iamcco/markdown-preview.nvim" }
 

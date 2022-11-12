@@ -1,50 +1,36 @@
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
-	return
+    return
 end
+
+local mason_null_status_ok, mason_null = pcall(require, "mason-null-ls")
+if not mason_null_status_ok then
+    return
+end
+
+mason_null.setup({
+    ensure_installed = {},
+    automatic_setup = true,
+})
 
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
 
--- Remove multiple format options, only use null-ls (need nvim 0.8)
---[[ local callback = function() ]]
---[[     vim.lsp.buf.format({ ]]
---[[         bufnr = bufnr, ]]
---[[         filter = function(client) ]]
---[[             return client.name == "null-ls" ]]
---[[         end ]]
---[[     }) ]]
---[[ end, ]]
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-null_ls.setup({
-	debug = false,
-	sources = {
-		--Format on Save
-		on_attach = function(client, bufnr)
-			if client.supports_method("textDocument/formatting") then
-				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-				vim.api.nvim_create_autocmd("BufWritePre", {
-					group = augroup,
-					buffer = bufnr,
-					callback = function()
-						-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-						vim.lsp.buf.formatting_sync()
-					end,
-				})
-			end
-		end,
-		--python
-		formatting.black,
-		-- diagnostics.flake8,
-
-		--golang
-		diagnostics.golangci_lint,
-		formatting.goimports,
-        formatting.gofumpt,
-
-		--lua
-		formatting.stylua,
-	},
+require("mason-null-ls").setup_handlers({
+    function(source_name, methods)
+        -- all sources with no handler get passed here
+        -- Keep original functionality of `automatic_setup = true`
+        require("mason-null-ls.automatic_setup")(source_name, methods)
+    end,
+    stylua = function(source_name, methods)
+        null_ls.register(null_ls.builtins.formatting.stylua)
+    end,
+    jq = function(source_name, methods)
+        null_ls.register(null_ls.builtins.formatting.jq)
+    end,
 })
+
+-- will setup any installed and configured sources above
+null_ls.setup()
