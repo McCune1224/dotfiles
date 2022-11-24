@@ -115,6 +115,7 @@ alias dnn="dotnet new"
 alias dnb="dotnet build"
 alias dnr="dotnet run"
 alias dnar="dotnet add reference"
+alias neofetch="neofetch --source $HOME/Pictures/aperture.txt"
 
 alias py="python3"
 

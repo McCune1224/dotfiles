@@ -36,9 +36,10 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+space exec --no-startup-id ~/.config/rofi/bin/launcher_misc
-bindsym $mod+Escape exec --no-startup-id ~/.config/rofi/bin/powermenu
-bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/bin/menu_screenshot
+bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-3/launcher.sh
+bindsym $mod+Escape exec --no-startup-id ~/.config/rofi/powermenu/type-2/powermenu.sh
+bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
+bindsym $mod+Shift+b exec --no-startup-id ~/.config/rofi/applets/bin/quicklinks.sh
 
 
 # launch categorized menu
@@ -200,6 +201,8 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
 
 # Open applications on specific workspaces
+assign [class="Discord"] $ws9
+assign [class="Spotify"] $ws0
 # assign [class="Thunderbird"] $ws1
 # assign [class="Pale moon"] $ws2
 # assign [class="Pcmanfm"] $ws3

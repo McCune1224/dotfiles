@@ -27,9 +27,6 @@ require("mason-null-ls").setup_handlers({
     stylua = function(source_name, methods)
         null_ls.register(null_ls.builtins.formatting.stylua)
     end,
-    jq = function(source_name, methods)
-        null_ls.register(null_ls.builtins.formatting.jq)
-    end,
 })
 
 -- will setup any installed and configured sources above

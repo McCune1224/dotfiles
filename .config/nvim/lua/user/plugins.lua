@@ -86,6 +86,9 @@ return packer.startup(function(use)
     -- Telescope
     use { "nvim-telescope/telescope.nvim" }
 
+    --Dressing
+    use { "stevearc/dressing.nvim"}
+
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter" }
     use { "nvim-treesitter/nvim-treesitter-context" }
