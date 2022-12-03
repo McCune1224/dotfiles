@@ -46,7 +46,7 @@ return packer.startup(function(use)
     use { "JoosepAlviste/nvim-ts-context-commentstring" }
     use { "kyazdani42/nvim-web-devicons" } -- Nice Icons for bars n such
     use { "kyazdani42/nvim-tree.lua" } -- Side bar file explorer
-    use { "akinsho/bufferline.nvim" } -- Bar at top to show current buffers
+    use { "akinsho/bufferline.nvim", tag="v3.*" } -- Bar at top to show current buffers
     use { "moll/vim-bbye" }
     use { "nvim-lualine/lualine.nvim" } -- Status Line
     use { "akinsho/toggleterm.nvim" } -- Allows to open a terminal in a buffer
