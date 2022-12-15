@@ -83,6 +83,10 @@ return packer.startup(function(use)
     use { "jayp0521/mason-null-ls.nvim" }
     use { "RRethy/vim-illuminate" } -- highlighting other uses of the word under the cursor
 
+
+    --Github Copilot
+    use { "github/copilot.vim"}
+
     -- Telescope
     use { "nvim-telescope/telescope.nvim" }
 

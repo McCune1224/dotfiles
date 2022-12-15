@@ -14,12 +14,22 @@ cat_config.setup({
     },
     transparent_background = trans,
     integrations = {
-
         nvimtree = {
             enabled = true,
             show_root = true,
             transparent_panel = trans,
         },
+        indent_blankline = {
+            enabled = true,
+            colored_indent_levels = false,
+        },
+        dap = {
+            enabled = true,
+            enable_ui = true, -- enable nvim-dap-ui
+        },
+        illuminate = true,
+
+
     },
 })
 
@@ -28,7 +38,7 @@ cat_config.setup({
 --[[     return ]]
 --[[ end ]]
 
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. "catppuccin")
+local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
     return
 end

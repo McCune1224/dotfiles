@@ -2,7 +2,6 @@
 local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
-
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -27,13 +26,16 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 
+-- Scroll Up and Down with keeping cursor centered
 keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "{", "{zz", opts)
+keymap("n", "}", "}zz", opts)
 keymap("n", "n", "nzz", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-Up>", ":resize -4<CR>", opts)
+keymap("n", "<C-Down>", ":resize +4<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
@@ -80,3 +82,8 @@ keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+-- Copilot
+keymap("n", "<leader>cs", ":Copilot status<CR>", opts)
+keymap("n", "<leader>cp", ":Copilot panel<CR>", opts)
+keymap("n", "<leader>ch", ":Copilot help<CR>", opts)
