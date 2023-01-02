@@ -13,5 +13,5 @@ configs.setup({
 	autopairs = {
 		enable = true,
 	},
-	indent = { enable = true, disable = { ""} },
+	indent = { enable = true, disable = { "python", "css" } }, --Causes 8 character tab indent with whitespace formatted langauges
 })

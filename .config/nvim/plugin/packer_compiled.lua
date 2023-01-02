@@ -89,11 +89,6 @@ _G.packer_plugins = {
     path = "/home/mckusa/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
-  ["blue-moon"] = {
-    loaded = true,
-    path = "/home/mckusa/.local/share/nvim/site/pack/packer/start/blue-moon",
-    url = "https://github.com/kyazdani42/blue-moon"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/mckusa/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -213,16 +208,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mckusa/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-dap"] = {
-    loaded = true,
-    path = "/home/mckusa/.local/share/nvim/site/pack/packer/start/nvim-dap",
-    url = "https://github.com/mfussenegger/nvim-dap"
-  },
-  ["nvim-dap-ui"] = {
-    loaded = true,
-    path = "/home/mckusa/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
-    url = "https://github.com/rcarriga/nvim-dap-ui"
   },
   ["nvim-lspconfig"] = {
     loaded = true,

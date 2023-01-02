@@ -46,7 +46,7 @@ return packer.startup(function(use)
     use { "JoosepAlviste/nvim-ts-context-commentstring" }
     use { "kyazdani42/nvim-web-devicons" } -- Nice Icons for bars n such
     use { "kyazdani42/nvim-tree.lua" } -- Side bar file explorer
-    use { "akinsho/bufferline.nvim", tag="v3.*" } -- Bar at top to show current buffers
+    use { "akinsho/bufferline.nvim", tag = "v3.*" } -- Bar at top to show current buffers
     use { "moll/vim-bbye" }
     use { "nvim-lualine/lualine.nvim" } -- Status Line
     use { "akinsho/toggleterm.nvim" } -- Allows to open a terminal in a buffer
@@ -60,7 +60,6 @@ return packer.startup(function(use)
     use { "lunarvim/darkplus.nvim" }
     use { "cocopon/iceberg.vim" }
     use({ "catppuccin/nvim", as = "catppuccin" }) -- BEST THEME WEEEW
-    use { "kyazdani42/blue-moon" }
     use { "ellisonleao/gruvbox.nvim" }
 
     -- cmp plugins
@@ -85,13 +84,13 @@ return packer.startup(function(use)
 
 
     --Github Copilot
-    use { "github/copilot.vim"}
+    use { "github/copilot.vim" }
 
     -- Telescope
     use { "nvim-telescope/telescope.nvim" }
 
     --Dressing
-    use { "stevearc/dressing.nvim"}
+    use { "stevearc/dressing.nvim" }
 
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter" }
@@ -100,9 +99,9 @@ return packer.startup(function(use)
     -- Git
     use { "lewis6991/gitsigns.nvim" } --
 
-    -- DAP
-    use { "mfussenegger/nvim-dap" } -- DAP engine
-    use { "rcarriga/nvim-dap-ui" } -- UI for when running DAP
+    --[[ -- DAP ]]
+    --[[ use { "mfussenegger/nvim-dap" } -- DAP engine ]]
+    --[[ use { "rcarriga/nvim-dap-ui" } -- UI for when running DAP ]]
 
     --TPOPE QOL
     use { "tpope/vim-unimpaired" } --Simply short normal mode aliases for commonly used ex commands
