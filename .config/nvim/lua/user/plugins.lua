@@ -88,6 +88,8 @@ return packer.startup(function(use)
 
     -- Telescope
     use { "nvim-telescope/telescope.nvim" }
+    -- WhichKey
+    use { "folke/which-key.nvim" }
 
     --Dressing
     use { "stevearc/dressing.nvim" }
@@ -107,29 +109,13 @@ return packer.startup(function(use)
     use { "tpope/vim-unimpaired" } --Simply short normal mode aliases for commonly used ex commands
     use { "tpope/vim-surround" } -- Change text object surroundings
     use { "tpope/vim-repeat" } -- Better repeat functionality
+    use { "tpope/vim-fugitive" } -- Git commands in nvim
 
-
-    use { "iamcco/markdown-preview.nvim" }
 
     use { "andweeb/presence.nvim" }
-    -- Impatient Plugin not happy with this program, will commented for now until solution is found
-    --https://github.com/chipsenkbeil/distant.nvim/issues/66
-    -- use {
-    --     "chipsenkbeil/distant.nvim",
-    --     config = function()
-    --         require("distant").setup {
-    --             -- Applies Chip's personal settings to every machine you connect to
-    --             --
-    --             -- 1. Ensures that distant servers terminate with no connections
-    --             -- 2. Provides navigation bindings for remote directories
-    --             -- 3. Provides keybinding to jump into a remote file's parent directory
-    --             ['*'] = require("distant.settings").chip_default()
-    --         }
-    --     end
-    -- }
+
 
     -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
         require("packer").sync()
     end

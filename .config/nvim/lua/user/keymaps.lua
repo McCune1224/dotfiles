@@ -66,8 +66,39 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fc", ":Telescope colorscheme<CR>", opts)
 
 
--- Git
-keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+-- Git (vim-fugitive)
+keymap("n", "<leader>gs", ":Git<CR>", opts)
+keymap("n", "<leader>gb", ":Git blame<CR>", opts)
+keymap("n", "<leader>gd", ":Gdiffsplit<CR>", opts)
+keymap("n", "<leader>gl", ":Glog<CR>", opts)
+-- push/pull
+keymap("n", "<leader>gp", ":Git push<CR>", opts)
+keymap("n", "<leader>gP", ":Git pull<CR>", opts)
+
+-- commit
+keymap("n", "<leader>gc", ":Git commit<CR>", opts)
+keymap("n", "<leader>gC", ":Git commit -v<CR>", opts)
+keymap("n", "<leader>gca", ":Git commit --amend<CR>", opts)
+keymap("n", "<leader>gco", ":Git checkout<CR>", opts)
+
+
+-- merge
+keymap("n", "<leader>gm", ":Gvdiffsplit<CR>", opts)
+keymap("n", "<leader>gM", ":Gvdiffsplit!<CR>", opts)
+
+-- undo
+keymap("n", "<leader>gu", ":Gundo<CR>", opts)
+keymap("n", "<leader>gU", ":Gundo<CR>", opts)
+
+-- stash
+keymap("n", "<leader>gs", ":Gstash<CR>", opts)
+keymap("n", "<leader>gS", ":Gstash pop<CR>", opts)
+
+-- browse
+keymap("n", "<leader>gb", ":GBrowse<CR>", opts)
+keymap("n", "<leader>gB", ":GBrowse!<CR>", opts)
+
+
 
 
 -- DAP

@@ -27,7 +27,12 @@ cat_config.setup({
             enabled = true,
             enable_ui = true, -- enable nvim-dap-ui
         },
+        which_key = {
+            enabled = true,
+            show_icons = true,
+        },
         illuminate = true,
+        telescope = true,
 
 
     },
