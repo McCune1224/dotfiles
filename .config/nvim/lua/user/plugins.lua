@@ -98,6 +98,9 @@ return packer.startup(function(use)
     --Dressing
     use { "stevearc/dressing.nvim" }
 
+    use { 'MunifTanjim/nui.nvim' } -- Required for noice
+    use { "folke/noice.nvim" } -- Better UI components (popup menu, commands, etc)
+
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter" }
     use { "nvim-treesitter/nvim-treesitter-context" }
