@@ -136,4 +136,5 @@ export NVM_DIR="$HOME/.nvm"
 
 
 path+=('/home/mckusa/go/bin')
+path+=('home/mckusa/.local/bin')
 export PATH

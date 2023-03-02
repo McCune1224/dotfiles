@@ -38,6 +38,7 @@ packer.init {
     },
 }
 
+
 return packer.startup(function(use)
     use { "wbthomason/packer.nvim" } -- Have packer manage itself
     use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
@@ -47,8 +48,12 @@ return packer.startup(function(use)
     use { "kyazdani42/nvim-web-devicons" } -- Nice Icons for bars n such
     use { "kyazdani42/nvim-tree.lua" } -- Side bar file explorer
     use { "akinsho/bufferline.nvim", tag = "v3.*" } -- Bar at top to show current buffers
-    use { "moll/vim-bbye" }
+    use { "moll/vim-bbye" } -- Better buffer deletion
+    use { 'rcarriga/nvim-notify' } -- Notifications in the top right
+
     use { "nvim-lualine/lualine.nvim" } -- Status Line
+    use { "arkav/lualine-lsp-progress" } -- LSP Progress in status line
+
     use { "akinsho/toggleterm.nvim" } -- Allows to open a terminal in a buffer
     use { "ahmedkhalf/project.nvim" } -- Mark Projects in directory structures
     use { "lewis6991/impatient.nvim" } -- Quick Loading of Plugins
@@ -56,7 +61,6 @@ return packer.startup(function(use)
     use { "goolord/alpha-nvim" } --Main Menu if just opening nvim by itself
 
     -- Colorschemes
-    use { "folke/tokyonight.nvim" }
     use { "lunarvim/darkplus.nvim" }
     use { "cocopon/iceberg.vim" }
     use({ "catppuccin/nvim", as = "catppuccin" }) -- BEST THEME WEEEW
@@ -104,7 +108,6 @@ return packer.startup(function(use)
     --[[ -- DAP ]]
     --[[ use { "mfussenegger/nvim-dap" } -- DAP engine ]]
     --[[ use { "rcarriga/nvim-dap-ui" } -- UI for when running DAP ]]
-
     --TPOPE QOL
     use { "tpope/vim-unimpaired" } --Simply short normal mode aliases for commonly used ex commands
     use { "tpope/vim-surround" } -- Change text object surroundings

@@ -50,8 +50,8 @@ lualine.setup {
     sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch" },
-        lualine_c = { diagnostics },
-        lualine_x = { diff, "fileformat", "encoding", filetype },
+        lualine_c = { diagnostics, "lsp_progress" },
+        lualine_x = { diff, "fileformat", "encoding",  filetype },
         lualine_y = { location },
         lualine_z = { "progress" },
     },

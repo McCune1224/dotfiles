@@ -47,12 +47,16 @@ keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 
 
--- Visual --
+
+
+---- Visual ----
+
+
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
--- Plugins --
+----  Plugins ----
 
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
@@ -111,7 +115,6 @@ keymap("n", "<leader>gB", ":GBrowse!<CR>", opts)
 --[[ keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts) ]]
 --[[ keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts) ]]
 --[[ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts) ]]
-
 -- Copilot
 keymap("n", "<leader>cs", ":Copilot status<CR>", opts)
 keymap("n", "<leader>cp", ":Copilot panel<CR>", opts)
