@@ -48,14 +48,8 @@ return packer.startup(function(use)
 	use({ "kyazdani42/nvim-tree.lua" }) -- Side bar file explorer
 	use({ "akinsho/bufferline.nvim", tag = "v3.*" }) -- Bar at top to show current buffers
 	use({ "moll/vim-bbye" }) -- Better buffer deletion
-	use({ "rcarriga/nvim-notify" }) -- Notifications in the top right
-
+	--[[ use({ "rcarriga/nvim-notify" }) -- Notifications in the top right ]]
 	use({ "nvim-lualine/lualine.nvim" }) -- Status Line
-	use({ "arkav/lualine-lsp-progress" }) -- LSP Progress in status line
-	use({
-		"SmiteshP/nvim-navic",
-		requires = "neovim/nvim-lspconfig",
-	}) -- LSP status line for code context
 
 	use({ "akinsho/toggleterm.nvim" }) -- Allows to open a terminal in a buffer
 	use({ "ahmedkhalf/project.nvim" }) -- Mark Projects in directory structures
@@ -88,14 +82,20 @@ return packer.startup(function(use)
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
 	use({ "jayp0521/mason-null-ls.nvim" })
 	use({ "RRethy/vim-illuminate" }) -- highlighting other uses of the word under the cursor
+	use({ "folke/trouble.nvim" }) -- LSP diagnostics
+	use({ "arkav/lualine-lsp-progress" }) -- LSP Progress in status line
+	use({
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
+	}) -- LSP status line for code context
 
-	--Github Copilot
-	use({ "github/copilot.vim" })
+	use({ "norcalli/nvim-colorizer.lua" }) -- HEX color highlighting
 
-	-- Telescope
-	use({ "nvim-telescope/telescope.nvim" })
-	-- WhichKey
-	use({ "folke/which-key.nvim" })
+	use({ "github/copilot.vim" }) -- Copilot integration
+
+	use({ "nvim-telescope/telescope.nvim" }) -- Telescope
+
+	use({ "folke/which-key.nvim" }) -- WhichKey
 
 	--Dressing
 	use({ "stevearc/dressing.nvim" })

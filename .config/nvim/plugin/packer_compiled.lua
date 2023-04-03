@@ -219,6 +219,11 @@ _G.packer_plugins = {
     path = "/home/mckusa/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/mckusa/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/mckusa/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -228,11 +233,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mckusa/.local/share/nvim/site/pack/packer/start/nvim-navic",
     url = "https://github.com/SmiteshP/nvim-navic"
-  },
-  ["nvim-notify"] = {
-    loaded = true,
-    path = "/home/mckusa/.local/share/nvim/site/pack/packer/start/nvim-notify",
-    url = "https://github.com/rcarriga/nvim-notify"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -288,6 +288,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mckusa/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "/home/mckusa/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
   },
   ["vim-bbye"] = {
     loaded = true,
