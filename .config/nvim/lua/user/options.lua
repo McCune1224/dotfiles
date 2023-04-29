@@ -21,18 +21,19 @@ vim.opt.updatetime = 300                        -- faster completion (4000ms def
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.expandtab = true                        -- convert tabs to spaces
 vim.opt.shiftwidth = 4                          -- the number of spaces inserted for each indentation
-vim.opt.tabstop = 4                            -- insert 2 spaces for a tab
+vim.opt.tabstop = 4                             -- insert 2 spaces for a tab
 vim.opt.cursorline = true                       -- highlight the current line
 vim.opt.number = true                           -- set numbered lines
 vim.opt.relativenumber = true
 vim.opt.laststatus = 3
 vim.opt.showcmd = false
 vim.opt.ruler = false
-vim.opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
-vim.opt.wrap = false                            -- display lines as one long line
-vim.opt.scrolloff = 8                           -- keep cursor centered when scrolling up and down :D
+vim.opt.signcolumn =
+"yes"                      -- always show the sign column, otherwise it would shift the text each time
+vim.opt.wrap = false       -- display lines as one long line
+vim.opt.scrolloff = 8      -- keep cursor centered when scrolling up and down
 vim.opt.sidescrolloff = 8
-vim.opt.fillchars.eob=" "
+vim.opt.fillchars.eob = " "
 vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")

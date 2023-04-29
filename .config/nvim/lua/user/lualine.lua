@@ -37,13 +37,27 @@ local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
+local filename = {
+	"filename",
+	file_status = true,
+	-- 0: Just the filename
+	-- 1: Relative path
+	-- 2: Absolute path
+	-- 3: Absolute path, with tilde as the home directory
+	-- 4: Filename and parent dir, with tilde as the home directory
+	path = 4,
+	shorting_target = 30,
+}
+
 lualine.setup({
 	options = {
 		globalstatus = true,
 		icons_enabled = true,
 		theme = "auto",
-		component_separators = { left = "", right = " | " },
-		section_separators = { left = "", right = "" },
+		component_separators = { left = "", right = "" },
+		--[[ section_separators = { left = "", right = "" }, ]]
+		--[[ component_separators = { left = "", right = "" }, ]]
+		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard" },
 		always_divide_middle = true,
 	},
@@ -51,8 +65,8 @@ lualine.setup({
 		lualine_a = { "mode" },
 		lualine_b = { "branch" },
 		lualine_c = { diagnostics },
-		lualine_x = { diff, "encoding", filetype },
-		lualine_y = { location },
-		lualine_z = { "progress" },
+		lualine_x = { diff, "encoding" },
+		lualine_y = { filename, location },
+		lualine_z = { "progress", },
 	},
 })

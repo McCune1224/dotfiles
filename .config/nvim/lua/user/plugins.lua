@@ -61,6 +61,7 @@ return packer.startup(function(use)
 	use({ "lunarvim/darkplus.nvim" })
 	use({ "cocopon/iceberg.vim" })
 	use({ "catppuccin/nvim", as = "catppuccin" }) -- BEST THEME WEEEW
+	use({ "rebelot/kanagawa.nvim" })
 	use({ "ellisonleao/gruvbox.nvim" })
 
 	-- cmp plugins

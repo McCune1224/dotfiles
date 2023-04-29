@@ -14,96 +14,89 @@ vim.g.mapleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
-
--- Normal --
-
-
+-- #################################
+-- Normal
+-- #################################
 
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<C-k>", "<C-w>k", opts) -- Move to top window
+keymap("n", "<C-j>", "<C-w>j", opts) -- Move to bottom window
+keymap("n", "<C-h>", "<C-w>h", opts) -- Move to left window
+keymap("n", "<C-l>", "<C-w>l", opts) -- Move to right window
 
+keymap("n", "]]", ":bnext<CR>", opts) -- Next buffer
+keymap("n", "[[", ":bprevious<CR>", opts) -- Previous buffer
 
--- Scroll Up and Down with keeping cursor centered
-keymap("n", "<C-u>", "<C-u>zz", opts)
-keymap("n", "<C-d>", "<C-d>zz", opts)
-keymap("n", "{", "{zz", opts)
-keymap("n", "}", "}zz", opts)
-keymap("n", "n", "nzz", opts)
+-- Line relocation
+keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts) -- Move line/block in visual up
+keymap("n", "<A-k>", ":m .-2<CR>==", opts) -- Move line in normal down
+keymap("n", "<A-j>", ":m .+1<CR>==", opts) -- Move line in normal up
+keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts) -- Move line/block in visual down
+
+-- Scrolling
+keymap("n", "<C-u>", "<C-u>zz", opts) -- Page Scroll up + center screen
+keymap("n", "<C-d>", "<C-d>zz", opts) -- Page Scroll down + center screen
+keymap("n", "{", "{zz", opts) -- Scroll down a Paragraph + center screen
+keymap("n", "}", "}zz", opts) -- Scroll up a Paragraph + center screen
+keymap("n", "n", "nzz", opts) -- Next search result + center screen
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -4<CR>", opts)
-keymap("n", "<C-Down>", ":resize +4<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Up>", ":resize -4<CR>", opts) -- Resize window up
+keymap("n", "<C-Down>", ":resize +4<CR>", opts) -- Resize window down
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts) -- Resize window left
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts) -- Resize window right
 
+keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts) -- Clear search highlight
 
--- Clear highlights
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts) -- Close current buffer
 
--- Close buffers
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
-
-
-
-
----- Visual ----
-
+-- #################################
+-- Visual
+-- #################################
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
-----  Plugins ----
+-- #################################
+--  Plugins
+-- #################################
 
--- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts) -- Toggle NvimTree
 
 -- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>fg", ":Telescope git_files<CR>", opts)
-keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-keymap("n", "<leader>fc", ":Telescope colorscheme<CR>", opts)
-
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts) -- Search files
+keymap("n", "<leader>fg", ":Telescope git_files<CR>", opts) -- Search git tracked files
+keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts) -- Search via grep
+keymap("n", "<leader>fp", ":Telescope projects<CR>", opts) -- Search projects
+keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts) -- Search open buffers
+keymap("n", "<leader>fc", ":Telescope colorscheme<CR>", opts) -- Colorscheme picker
 
 -- Git (vim-fugitive)
-keymap("n", "<leader>gs", ":Git<CR>", opts)
-keymap("n", "<leader>gb", ":Git blame<CR>", opts)
-keymap("n", "<leader>gd", ":Gdiffsplit<CR>", opts)
-keymap("n", "<leader>gl", ":Glog<CR>", opts)
+keymap("n", "<leader>gs", ":Git<CR>", opts) -- Git
+keymap("n", "<leader>gb", ":Git blame<CR>", opts) -- Git blame
+keymap("n", "<leader>gl", ":Glog<CR>", opts) -- Git log
 -- push/pull
-keymap("n", "<leader>gp", ":Git push<CR>", opts)
-keymap("n", "<leader>gP", ":Git pull<CR>", opts)
+keymap("n", "<leader>gp", ":Git push<CR>", opts) -- Git push
+keymap("n", "<leader>gP", ":Git pull<CR>", opts) -- Git pull
 
--- commit
-keymap("n", "<leader>gc", ":Git commit<CR>", opts)
-keymap("n", "<leader>gC", ":Git commit -v<CR>", opts)
-keymap("n", "<leader>gca", ":Git commit --amend<CR>", opts)
-keymap("n", "<leader>gco", ":Git checkout<CR>", opts)
+keymap("n", "<leader>gc", ":Git commit<CR>", opts) -- Git commit
+keymap("n", "<leader>gC", ":Git commit -v<CR>", opts) -- Git commit (verbose)
+keymap("n", "<leader>gca", ":Git commit --amend<CR>", opts) -- Git commit amend
+keymap("n", "<leader>gco", ":Git checkout<CR>", opts) -- Git checkout
 
+keymap("n", "<leader>gd", ":Gdiffsplit<CR>", opts) -- Git diff (split)
+keymap("n", "<leader>gm", ":Gvdiffsplit<CR>", opts) -- Git diff (vertical split)
+keymap("n", "<leader>gM", ":Gvdiffsplit!<CR>", opts) -- Git diff (vertical split, force)
 
--- merge
-keymap("n", "<leader>gm", ":Gvdiffsplit<CR>", opts)
-keymap("n", "<leader>gM", ":Gvdiffsplit!<CR>", opts)
-
--- undo
-keymap("n", "<leader>gu", ":Gundo<CR>", opts)
-keymap("n", "<leader>gU", ":Gundo<CR>", opts)
+keymap("n", "<leader>gu", ":Gundo<CR>", opts) -- Git undo
 
 -- stash
-keymap("n", "<leader>gs", ":Gstash<CR>", opts)
-keymap("n", "<leader>gS", ":Gstash pop<CR>", opts)
+keymap("n", "<leader>gs", ":Gstash<CR>", opts) -- Git stash
+keymap("n", "<leader>gS", ":Gstash pop<CR>", opts) -- Git stash pop
 
--- browse
-keymap("n", "<leader>gb", ":GBrowse<CR>", opts)
-keymap("n", "<leader>gB", ":GBrowse!<CR>", opts)
-
-
-
+keymap("n", "<leader>gb", ":GBrowse<CR>", opts) -- Git browse
+keymap("n", "<leader>gB", ":GBrowse!<CR>", opts) -- Git browse (force)
 
 -- DAP
 --[[ keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts) ]]
@@ -115,7 +108,8 @@ keymap("n", "<leader>gB", ":GBrowse!<CR>", opts)
 --[[ keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts) ]]
 --[[ keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts) ]]
 --[[ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts) ]]
+-- Just to test
 -- Copilot
-keymap("n", "<leader>cs", ":Copilot status<CR>", opts)
-keymap("n", "<leader>cp", ":Copilot panel<CR>", opts)
-keymap("n", "<leader>ch", ":Copilot help<CR>", opts)
+keymap("n", "<leader>cs", ":Copilot status<CR>", opts) -- Copilot status
+keymap("n", "<leader>cp", ":Copilot panel<CR>", opts) -- Copilot panel
+keymap("n", "<leader>ch", ":Copilot help<CR>", opts) -- Copilot help
