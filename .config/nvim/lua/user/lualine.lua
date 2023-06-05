@@ -37,6 +37,11 @@ local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
+local statuslineNoice = {
+	require("noice").api.statusline.mode.get,
+	cond = require("noice").api.statusline.mode.has,
+}
+
 local filename = {
 	"filename",
 	file_status = true,
@@ -65,8 +70,9 @@ lualine.setup({
 		lualine_a = { "mode" },
 		lualine_b = { "branch" },
 		lualine_c = { diagnostics },
-		lualine_x = { diff, "encoding" },
+		lualine_x = { diff, "encoding", statuslineNoice },
 		lualine_y = { filename, location },
-		lualine_z = { "progress", },
+		lualine_z = { "progress" },
 	},
+
 })

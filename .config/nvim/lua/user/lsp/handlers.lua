@@ -61,11 +61,10 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "<leader>lR", ":LspRestart<cr>", opts)
 	keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-    keymap(bufnr, "n", "<leader>ld", "<cmd>TroubleToggle<cr>", opts)
-    keymap(bufnr, "n", "<leader>lw", "<cmd>TroubleToggle<cr>", opts)
-
-
-
+	keymap(bufnr, "n", "<leader>ld", "<cmd>TroubleToggle<cr>", opts)
+	keymap(bufnr, "n", "<leader>lw", "<cmd>TroubleToggle<cr>", opts)
+	-- Keymap to auto implement go interface methods (gopls)
+	keymap(bufnr, "n", "<leader>i", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)
@@ -74,12 +73,12 @@ M.on_attach = function(client, bufnr)
 		return
 	end
 
-
 	M.capabilities = vim.lsp.protocol.make_client_capabilities()
 	M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 	M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 	lsp_keymaps(bufnr)
+
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
 		return

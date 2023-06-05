@@ -28,7 +28,7 @@ font xft:JetBrainsMono Nerd Font 20
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #FDF6E3 #FABFFF #E76f51
+  client.focused          #556064 #E76f51 #FABFFF #C0C0CA 
   client.focused_inactive #22223B #22223B #1ABC9C #454948
   client.unfocused        #22223B #22223B #1ABC9C #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
@@ -80,13 +80,15 @@ bindsym $mod+s exec xfce4-settings-manager
 bindsym $mod+b exec blueman-manager
 # bindsym $mod+n exec blueman-manager
 #bindsym $mod+d exec lxappearance
-bindsym $mod+Shift+Return exec brave
+bindsym $mod+Shift+Return exec firefox
 bindsym $mod+e exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom
+#Start picom without blur effect
+bindsym $mod+Ctrl+Shift+t exec --no-startup-id picom --experimental-backends
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
@@ -309,7 +311,7 @@ mode "resize" {
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec --no-startup-id nitrogen --restore --set-auto;  picom --experimental-backends -b
-exec --no-startup-id nitrogen --restore --set-auto
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom
 
 #exec --no-startup-id manjaro-hello

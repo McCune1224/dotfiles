@@ -43,7 +43,7 @@ return packer.startup(function(use)
 	use({ "nvim-lua/plenary.nvim" }) -- Useful lua functions used by lots of plugins
 	use({ "windwp/nvim-autopairs" }) -- Autopairs, integrates with both cmp and treesitter
 	use({ "numToStr/Comment.nvim" })
-	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
+	use({ "JoosepAlviste/nvim-ts-context-commentstring" }) -- Commentstring based on context
 	use({ "kyazdani42/nvim-web-devicons" }) -- Nice Icons for bars n such
 	use({ "kyazdani42/nvim-tree.lua" }) -- Side bar file explorer
 	use({ "akinsho/bufferline.nvim", tag = "v3.*" }) -- Bar at top to show current buffers
@@ -60,7 +60,7 @@ return packer.startup(function(use)
 	-- Colorschemes
 	use({ "lunarvim/darkplus.nvim" })
 	use({ "cocopon/iceberg.vim" })
-	use({ "catppuccin/nvim", as = "catppuccin" }) -- BEST THEME WEEEW
+	use({ "catppuccin/nvim", as = "catppuccin" })
 	use({ "rebelot/kanagawa.nvim" })
 	use({ "ellisonleao/gruvbox.nvim" })
 
@@ -85,21 +85,32 @@ return packer.startup(function(use)
 	use({ "RRethy/vim-illuminate" }) -- highlighting other uses of the word under the cursor
 	use({ "folke/trouble.nvim" }) -- LSP diagnostics
 	use({ "arkav/lualine-lsp-progress" }) -- LSP Progress in status line
-	use({
-		"SmiteshP/nvim-navic",
-		requires = "neovim/nvim-lspconfig",
-	}) -- LSP status line for code context
 
 	use({ "norcalli/nvim-colorizer.lua" }) -- HEX color highlighting
 
-	use({ "github/copilot.vim" }) -- Copilot integration
+	--[[ use({ "github/copilot.vim" })       -- Copilot integration ]]
+	-- Lazy Load of CoPilot lua wrapper so it doesn't slow down startup
+	use({
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+				suggestion = {
+					auto_trigger = true,
+					keymap = {
+						accept = "<C-a>",
+					},
+				},
+			})
+		end,
+	})
 
 	use({ "nvim-telescope/telescope.nvim" }) -- Telescope
 
 	use({ "folke/which-key.nvim" }) -- WhichKey
 
-	--Dressing
-	use({ "stevearc/dressing.nvim" })
+	use({ "stevearc/dressing.nvim" }) -- Dressing
 
 	use({ "MunifTanjim/nui.nvim" }) -- Required for noice
 	use({ "folke/noice.nvim" }) -- Better UI components (popup menu, commands, etc)

@@ -1,4 +1,4 @@
-local colorscheme = "catppuccin"
+local colorscheme = "kanagawa"
 
 local cat_ok, cat_config = pcall(require, "catppuccin")
 if not cat_ok then
