@@ -6,7 +6,10 @@ local act = wezterm.action
 -- conf.color_scheme = "Batman"
 -- conf.color_scheme = "Fahrenheit"
 -- conf.color_scheme = "Dawn (terminal.sexy)"
-conf.color_scheme = "Default (dark) (terminal.sexy)"
+-- conf.color_scheme = "Default (dark) (terminal.sexy)"
+-- conf.color_scheme = "aikofog (terminal.sexy)"
+conf.color_scheme = "Apple Classic"
+conf.color_scheme = "Apprentice (Gogh)"
 
 conf.font = wezterm.font("JetBrains Mono")
 conf.font_size = 14
