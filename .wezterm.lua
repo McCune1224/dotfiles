@@ -1,42 +1,93 @@
 local wezterm = require("wezterm")
+local config = {}
 
-local conf = wezterm.config_builder()
-local act = wezterm.action
+config.default_prog = { "pwsh" }
 
--- conf.color_scheme = "Batman"
--- conf.color_scheme = "Fahrenheit"
--- conf.color_scheme = "Dawn (terminal.sexy)"
--- conf.color_scheme = "Default (dark) (terminal.sexy)"
--- conf.color_scheme = "aikofog (terminal.sexy)"
-conf.color_scheme = "Apple Classic"
-conf.color_scheme = "Apprentice (Gogh)"
+config.font = wezterm.font("Iosevka Nerd Font")
+config.font_size = 14
+config.color_scheme = "rose-pine"
 
-conf.font = wezterm.font("JetBrains Mono")
-conf.font_size = 14
-
--- Setup $TERM to wezterm https://wezfurlong.org/wezterm/config/lua/config/term.html?h=env
-conf.term = "wezterm"
-
-conf.keys = {
+local direction = "Right"
+config.keys = {
+	-- ============= PANES =============
+	-- New Pane Right
 	{
-		key = "P",
-		mods = "CTRL",
-		action = wezterm.action.ActivateCommandPalette,
+		mods = "CTRL|SHIFT",
+		key = "RightArrow",
+		action = wezterm.action.SplitPane({ direction = "Right" }),
+	},
+	{
+		mods = "CTRL|SHIFT",
+		key = "LeftArrow",
+		action = wezterm.action.SplitPane({ direction = "Left" }),
+	},
+	{
+		mods = "CTRL|SHIFT",
+		key = "UpArrow",
+		action = wezterm.action.SplitPane({ direction = "Up" }),
+	},
+	{
+		mods = "CTRL|SHIFT",
+		key = "DownArrow",
+		action = wezterm.action.SplitPane({ direction = "Down" }),
+	},
+	-- Move to right pane
+	{
+		mods = "CTRL|SHIFT",
+		key = "l",
+		action = wezterm.action.ActivatePaneDirection("Right"),
+	},
+	-- Move to left pane
+	{
+		mods = "CTRL|SHIFT",
+		key = "h",
+		action = wezterm.action.ActivatePaneDirection("Left"),
+	},
+
+	-- Move to down pane
+	{
+		mods = "CTRL|SHIFT",
+		key = "j",
+		action = wezterm.action.ActivatePaneDirection("Down"),
+	},
+
+	-- Move to up pane
+	{
+		mods = "CTRL|SHIFT",
+		key = "k",
+		action = wezterm.action.ActivatePaneDirection("Up"),
+	},
+
+	-- Close current pane (confirm)
+	{
+		key = "w",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.CloseCurrentPane({ confirm = true }),
+	},
+
+	-- ============= Tabs =============
+
+	-- New tab
+	{
+		key = "t",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.SpawnTab("CurrentPaneDomain"),
+	},
+
+	-- Close tab with confirmation: ctrl+shift+q
+	{
+		key = "q",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.CloseCurrentTab({ confirm = true }),
+	},
+
+	-- ============= Windows =============
+
+	-- New window: ctrl+shift+n
+	{
+		key = "n",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.SpawnWindow,
 	},
 }
-
-for i = 1, 8 do
-	-- CTRL+ALT + number to activate that tab
-	table.insert(conf.keys, {
-		key = tostring(i),
-		mods = "CTRL|ALT",
-		action = act.ActivateTab(i - 1),
-	})
-	-- F1 through F8 to activate that tab
-	table.insert(conf.keys, {
-		key = "F" .. tostring(i),
-		action = act.ActivateTab(i - 1),
-	})
-end
-
-return conf
+return config
