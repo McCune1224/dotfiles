@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local config = {}
 
-config.default_prog = { "pwsh" }
+-- config.default_prog = { "pwsh" }
 
 config.font = wezterm.font("Iosevka Nerd Font")
 config.font_size = 14
