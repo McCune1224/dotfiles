@@ -10,6 +10,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+include ~/.config/i3/*.conf
+
 set $mod Mod4
 
 default_border pixel 3
@@ -18,8 +20,8 @@ default_floating_border normal
 # is used in the bar {} block below.
 font pango:monospace 12
 
-# gaps inner 10 
-# gaps outer 5
+gaps inner 10 
+gaps outer 8
 smart_gaps on
 
 mouse_warping none
@@ -31,11 +33,9 @@ mouse_warping none
   # client.unfocused        #22223B #22223B #1ABC9C #454948
   # client.focused_inactive #000000 #000000 #1ABC9C #454948
   # client.unfocused        #000000 #000000 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0C0C0C #FFFFFF #000000
-
-  client.background       #2B2C2B
-
+client.urgent               #CB4B16 #FDF6E3 #1ABC9C #268BD2
+client.placeholder          #000000 #0C0C0C #FFFFFF #000000
+client.background           #2B2C2B
 client.focused              #689d6a #689d6a #689d6a #689d6a
 client.unfocused            #374e45 #374e45 #374e45 #374e45
 client.focused_inactive     #374e45 #374e45 #374e45 #374e45
@@ -59,7 +59,7 @@ exec_always --no-startup-id $HOME/.screenlayout/desktop.sh
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Keyboard repeat rate
-exec_always --no-startup-id xset r rate 250 55 # Set initial delay 300ms, repeat 35ms
+# exec_always --no-startup-id xset r rate 250 55 # Set initial delay 300ms, repeat 35ms
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -72,7 +72,7 @@ exec --no-startup-id greenclip daemon
 
 exec --no-startup-id nitrogen --random --restore
 
-# exec_always --no-startup-id picom
+exec_always --no-startup-id picom
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Shift+t exec --no-startup-id picom 
 

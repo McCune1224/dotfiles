@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 -- config.font = wezterm.font("Iosevka Nerd Font")
 -- config.font = wezterm.font("ShureTechMono Nerd Font")
 config.font = wezterm.font("OverpassM Nerd Font")
-config.font_size = 14
+config.font_size = 12
 config.color_scheme = "Gruvbox Material (Gogh)"
 --cursor style
 -- config.cursor_style = "SteadyUnderline"
