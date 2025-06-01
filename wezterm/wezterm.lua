@@ -1,19 +1,25 @@
 local wezterm = require("wezterm")
-local config = wezterm.config_builder()
+local config = wezterm.config_builder and wezterm.config_builder() or {}
+local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
+config.use_fancy_tab_bar = true
 
 -- config.default_prog = { "pwsh" }
 
--- config.font = wezterm.font("Iosevka Nerd Font")
+config.font = wezterm.font("Iosevka Nerd Font")
+-- config.font = wezterm.font("DroidSansM Nerd Font")
 -- config.font = wezterm.font("ShureTechMono Nerd Font")
-config.font = wezterm.font("OverpassM Nerd Font")
-config.font_size = 12
-config.color_scheme = "Gruvbox Material (Gogh)"
---cursor style
--- config.cursor_style = "SteadyUnderline"
+-- config.font = wezterm.font("OverpassM Nerd Font")
+-- config.font = wezterm.font("JetBrains Mono Nerd Font")
+config.font_size = 14
+-- config.max_fps = 144
+-- config.color_scheme = "Gruvbox Material (Gogh)"
+local kanso = require("kanso-ink")
+config.colors = kanso.colors
 
--- => != 0 O o q Q l L 1  <=  -->
+-- local direction = "Right"
+--
+-- iI1lLf0Oo => >= <= === != =>>
 
-local direction = "Right"
 config.keys = {
 	-- ============= PANES =============
 	-- New Pane Right
@@ -97,4 +103,79 @@ config.keys = {
 	},
 }
 
+bar.apply_to_config(config, {
+	position = "bottom",
+	max_width = 64,
+	padding = {
+		left = 1,
+		right = 1,
+		tabs = {
+			left = 0,
+			right = 2,
+		},
+	},
+	separator = {
+		space = 1,
+		-- left_icon = wezterm.nerdfonts.fa_long_arrow_right,
+		-- right_icon = wezterm.nerdfonts.fa_long_arrow_left,
+		left_icon = "",
+		right_icon = "",
+		field_icon = wezterm.nerdfonts.indent_line,
+	},
+	modules = {
+		tabs = {
+			active_tab_fg = 7,
+			inactive_tab_fg = 8,
+			new_tab_fg = 2,
+		},
+		workspace = {
+			enabled = false,
+			-- icon = wez.nerdfonts.cod_window,
+			color = 8,
+		},
+		leader = {
+			enabled = true,
+			-- icon = wez.nerdfonts.oct_rocket,
+			color = 2,
+		},
+		zoom = {
+			enabled = false,
+			-- icon = wez.nerdfonts.md_fullscreen,
+			color = 4,
+		},
+		pane = {
+			enabled = false,
+			-- icon = wez.nerdfonts.cod_multiple_windows,
+			color = 7,
+		},
+		username = {
+			enabled = false,
+			-- icon = wez.nerdfonts.fa_user,
+			color = 6,
+		},
+		hostname = {
+			enabled = false,
+			-- icon = wez.nerdfonts.cod_server,
+			color = 8,
+		},
+		clock = {
+			enabled = false,
+			-- icon = wez.nerdfonts.md_calendar_clock,
+			format = "%H:%M",
+			color = 5,
+		},
+		cwd = {
+			enabled = false,
+			-- icon = wez.nerdfonts.oct_file_directory,
+			color = 7,
+		},
+		spotify = {
+			enabled = false,
+			-- icon = wez.nerdfonts.fa_spotify,
+			color = 3,
+			max_width = 64,
+			throttle = 15,
+		},
+	},
+})
 return config
