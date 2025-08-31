@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/mckusa/.zsh/completions:"* ]]; then export FPATH="/home/mckusa/.zsh/completions:$FPATH"; fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -79,7 +81,7 @@ ZSH_THEME="mccune"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git zsh-autosuggestions zsh-syntax-highlighting)
+	zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -111,23 +113,28 @@ source $ZSH/oh-my-zsh.sh
 alias mv="mv -i"
 alias rm="rm -i"
 alias v="nvim"
+alias gvim="nvim --listen /tmp/godot.pipe"
 alias dnn="dotnet new"
 alias dnb="dotnet build"
 alias dnr="dotnet run"
 alias dnar="dotnet add reference"
-alias neofetch="neofetch --source $HOME/Pictures/aperture.txt"
+# alias neofetch="neofetch --source $HOME/Documents/aperture.txt"
+alias l='eza -lh  --icons=auto' # long list
+alias ls='eza -lh  --icons=auto' # long list
+alias tree='eza --tree --icons'
+# alias ls='eza -1   --icons=auto' # short list
+alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
+alias ld='eza -lhD --icons=auto' # long list dirs
 
 alias py="python3"
 
-alias config='git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+# alias config='git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+
+alias mkv2mp4='f() { if [ -z "$2" ]; then ffmpeg -i "$1" -codec copy "${1%.*}.mp4"; else ffmpeg -i "$1" -codec copy "$2"; fi; }; f'
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
-#Adding Z cd tool
-. /usr/local/z/z.sh
 
 #nvm
 export NVM_DIR="$HOME/.nvm"
@@ -154,8 +161,22 @@ _dotnet_zsh_complete()
 
 compdef _dotnet_zsh_complete dotnet
 
-
+. "$HOME/.cargo/env"
 # Random stuff I want added onto path
 path+=('/home/mckusa/go/bin')
-path+=('home/mckusa/.local/bin')
+path+=('/usr/local/go/bin')
+path+=('/home/mckusa/bin')
+path+=('/home/mckusa/.local/bin')
+path+=('/home/mckusa/.dotnet/tools')
+path+=('/opt/nvim/bin')
+
 export PATH
+. "/home/mckusa/.deno/env"
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit
+
+
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+. ~/envy.sh

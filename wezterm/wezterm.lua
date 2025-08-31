@@ -3,18 +3,23 @@ local config = wezterm.config_builder and wezterm.config_builder() or {}
 local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 config.use_fancy_tab_bar = true
 
+config.enable_wayland = true
+
 -- config.default_prog = { "pwsh" }
 
-config.font = wezterm.font("Iosevka Nerd Font")
+-- config.font = wezterm.font("Iosevka Nerd Font")
 -- config.font = wezterm.font("DroidSansM Nerd Font")
 -- config.font = wezterm.font("ShureTechMono Nerd Font")
 -- config.font = wezterm.font("OverpassM Nerd Font")
--- config.font = wezterm.font("JetBrains Mono Nerd Font")
+config.font = wezterm.font("JetBrains Mono Nerd Font")
 config.font_size = 14
 -- config.max_fps = 144
 -- config.color_scheme = "Gruvbox Material (Gogh)"
-local kanso = require("kanso-ink")
-config.colors = kanso.colors
+-- config.color_scheme = "Arthur (Gogh)"
+config.color_scheme = "One Half Black (Gogh)"
+-- config.color_scheme = "Twilight (Gogh)"
+-- local kanso = require("kanso-ink")
+-- config.colors = kanso.colors
 
 -- local direction = "Right"
 --
@@ -165,7 +170,7 @@ bar.apply_to_config(config, {
 			color = 5,
 		},
 		cwd = {
-			enabled = false,
+			enabled = true,
 			-- icon = wez.nerdfonts.oct_file_directory,
 			color = 7,
 		},
